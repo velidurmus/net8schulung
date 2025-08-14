@@ -17,35 +17,35 @@ Die wichtigsten C# Features der Versionen 8.0 bis 12.0 im Kontext der WAWI-Migra
 - **C# 13.0** (2024): Escape Sequence, Params Collections *[Überblick]*
 - **C# 14.0** (Preview): Field Keyword, Partial Properties *[Überblick]*
 
-### 🎯 Was wir gewinnen
+### - Was wir gewinnen
 Die neuen C# Features machen Code:
-- ✅ **Sicherer** (Nullable Reference Types, Required Members)
-- ✅ **Lesbarer** (Switch Expressions, Records, Raw Strings)
-- ✅ **Wartbarer** (weniger Boilerplate, mehr Expressions)
-- ✅ **Performanter** (Async Streams, Span<T>, strukturelle Verbesserungen)
-- ✅ **Moderner** (Current Best Practices, Community Standards)
+- **Sicherer** (Nullable Reference Types, Required Members)
+- **Lesbarer** (Switch Expressions, Records, Raw Strings)
+- **Wartbarer** (weniger Boilerplate, mehr Expressions)
+- **Performanter** (Async Streams, Span<T>, strukturelle Verbesserungen)
+- **Moderner** (Current Best Practices, Community Standards)
 
-### 📊 Impact auf die WAWI-Codebase
+### - Impact auf die WAWI-Codebase
 - **-30% Code-Zeilen** durch Records, Primary Constructors, Global Usings
 - **+90% Type Safety** durch Nullable Reference Types
 - **-50% NullRef Exceptions** durch bessere Null-Handling
 - **+100% Lesbarkeit** bei Business Logic (Switch Expressions, Pattern Matching)
 
-### ⚡ Sofortige Quick Wins
+### - Sofortige Quick Wins
 1. File-scoped Namespaces = Weniger Einrückung
 2. Global Usings = Keine using-Duplikation
 3. Collection Expressions = Einheitliche Syntax
 4. Primary Constructors = Weniger DI-Boilerplate
 
-### 🎓 Lernkurve
+### - Lernkurve
 - **Easy**: File-scoped, Global Usings, Collection Expressions
 - **Medium**: Records, Primary Constructors, Switch Expressions
 - **Advanced**: Nullable Types, Pattern Matching, Async Streams
 
 **Wichtig**: Schrittweise Migration, Features dort einsetzen wo sie Sinn machen!
 
-### Empfehlungslevels 
-⭐⭐⭐ = Must-have, ⚠️ = Mit Vorsicht
+### - Empfehlungslevels 
+⭐⭐⭐ = Must-have, = Mit Vorsicht
 
 ---
 
@@ -92,7 +92,7 @@ public class KundenService
 </PropertyGroup>
 ```
 
-**WAWI-Empfehlung**: ✅ Aktivieren für neue Klassen, schrittweise Migration
+**WAWI-Empfehlung**: Aktivieren für neue Klassen, schrittweise Migration
 
 ---
 
@@ -138,7 +138,7 @@ public decimal GetVersandkostenRabatt(Kunde kunde, decimal bestellwert) => (kund
 };
 ```
 
-**WAWI-Empfehlung**: ✅ Verwenden für einfache Mappings und Berechnungen
+**WAWI-Empfehlung**: Verwenden für einfache Mappings und Berechnungen
 
 ---
 
@@ -162,7 +162,7 @@ public string GetRabattKategorie(Kunde kunde) => kunde switch
 };
 ```
 
-**WAWI-Empfehlung**: ✅ Gut lesbar für Business Logic
+**WAWI-Empfehlung**: Gut lesbar für Business Logic
 
 ---
 
@@ -208,7 +208,7 @@ await foreach (var artikel in service.GetAlleArtikelStreamAsync())
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Perfekt für große Datenmengen, Export-Funktionen
+**WAWI-Empfehlung**: Perfekt für große Datenmengen, Export-Funktionen
 
 ---
 
@@ -243,7 +243,7 @@ public void ExportArtikelData()
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Deutlich sauberer, weniger Verschachtelung
+**WAWI-Empfehlung**: Deutlich sauberer, weniger Verschachtelung
 
 ---
 
@@ -282,7 +282,7 @@ public class ArtikelService
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Perfekt für Lazy Loading und Caching
+**WAWI-Empfehlung**: Perfekt für Lazy Loading und Caching
 
 ---
 
@@ -312,7 +312,7 @@ var letzteZwei = artikelListe[^2..];          // ["Artikel4", "Artikel5"]
 var mittlere = artikelListe[1..^1];           // ["Artikel2", "Artikel3", "Artikel4"]
 ```
 
-**WAWI-Empfehlung**: ✅ Spart Code, aber Vorsicht bei Performance-kritischen Bereichen
+**WAWI-Empfehlung**: Spart Code, aber Vorsicht bei Performance-kritischen Bereichen
 
 ---
 
@@ -348,7 +348,7 @@ public decimal BerechneGesamtpreis(BestellPosition[] positionen)
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Verhindert Bugs, bessere Performance
+**WAWI-Empfehlung**: Verhindert Bugs, bessere Performance
 
 ---
 
@@ -384,7 +384,7 @@ public struct Geldwert
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Perfekt für Value Objects und DTOs
+**WAWI-Empfehlung**: Perfekt für Value Objects und DTOs
 
 ---
 
@@ -405,7 +405,7 @@ public interface IArtikelService
 }
 ```
 
-**WAWI-Empfehlung**: ⚠️ Sparsam verwenden, kann Architecture verwässern
+**WAWI-Empfehlung**: Sparsam verwenden, kann Architecture verwässern
 
 ---
 
@@ -441,7 +441,7 @@ var dynamicSql = @$"SELECT
                      ORDER BY a.Name";
 ```
 
-**WAWI-Empfehlung**: ✅ Sehr praktisch für SQL-Queries und Templates
+**WAWI-Empfehlung**: Sehr praktisch für SQL-Queries und Templates
 
 ---
 
@@ -531,7 +531,7 @@ public ref struct ArtikelLogHandler
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Automatische Optimierung, bessere Performance
+**WAWI-Empfehlung**: Automatische Optimierung, bessere Performance
 
 ---
 
@@ -556,7 +556,7 @@ public class ArtikelService
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Für alle neuen Dateien verwenden
+**WAWI-Empfehlung**: Für alle neuen Dateien verwenden
 
 ---
 
@@ -582,7 +582,7 @@ public class ArtikelService // Keine using statements nötig!
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Reduziert Duplikation erheblich
+**WAWI-Empfehlung**: Reduziert Duplikation erheblich
 
 ---
 
@@ -605,7 +605,7 @@ var filter = new ArtikelSuchFilter("Laptop", 5, 100m, 2000m, true);
 var neuerFilter = filter with { MaxPreis = 1500m };
 ```
 
-**WAWI-Empfehlung**: ✅ Perfekt für DTOs, API-Parameter, Filter-Objekte
+**WAWI-Empfehlung**: Perfekt für DTOs, API-Parameter, Filter-Objekte
 
 ---
 
@@ -621,7 +621,7 @@ const string FullUrl = BaseUrl + "/" + ApiVersion; // Ugly workaround
 // C# 10.0 - Konstante interpolierte Strings
 const string BaseUrl = "https://api.jtl-software.de";
 const string ApiVersion = "v2";
-const string FullUrl = $"{BaseUrl}/{ApiVersion}"; // ✅ Funktioniert!
+const string FullUrl = $"{BaseUrl}/{ApiVersion}"; // Funktioniert!
 
 // WAWI-Beispiele
 const string DatabaseTablePrefix = "wawi_";
@@ -636,7 +636,7 @@ const string NullArtikelError = $"{ErrorPrefix} Artikel darf nicht null sein";
 const string InvalidPriceError = $"{ErrorPrefix} Preis muss positiv sein";
 ```
 
-**WAWI-Empfehlung**: ✅ Perfekt für Konstanten und Error Messages
+**WAWI-Empfehlung**: Perfekt für Konstanten und Error Messages
 
 ---
 
@@ -657,7 +657,7 @@ public void ProcessArtikel(Artikel[] artikel)
 }
 ```
 
-**WAWI-Empfehlung**: ⚠️ Sparsam verwenden, Lesbarkeit wichtiger als Kürze
+**WAWI-Empfehlung**: Sparsam verwenden, Lesbarkeit wichtiger als Kürze
 
 ---
 
@@ -700,7 +700,7 @@ public bool IstExpressVersand(Bestellung bestellung) => bestellung switch
 };
 ```
 
-**WAWI-Empfehlung**: ✅ Sehr lesbar für Business Logic
+**WAWI-Empfehlung**: Sehr lesbar für Business Logic
 
 ---
 
@@ -745,7 +745,7 @@ WawiLogger.LogValue(artikel.Preis); // Output: "artikel.Preis = 49.99"
 WawiLogger.LogValue(artikel.Name); // Output: "artikel.Name = Laptop"
 ```
 
-**WAWI-Empfehlung**: ✅ Großartig für Validation und Debugging
+**WAWI-Empfehlung**: Großartig für Validation und Debugging
 
 ---
 
@@ -835,7 +835,7 @@ var stats = new ArtikelStatistik { Anzahl = 1000, Gesamtwert = 50000m };
 AnalyzeStatistik(in stats); // 'in' beim Aufruf
 ```
 
-**WAWI-Empfehlung**: ✅ Performance-kritische Stellen mit großen Structs
+**WAWI-Empfehlung**: Performance-kritische Stellen mit großen Structs
 
 ---
 
@@ -874,7 +874,7 @@ public class ArtikelViewModel(Artikel artikel)
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Sehr gut für Services mit DI
+**WAWI-Empfehlung**: Sehr gut für Services mit DI
 
 ---
 
@@ -902,7 +902,7 @@ public ArtikelFilter CreateFullFilter()
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Sehr praktisch, einheitliche Syntax
+**WAWI-Empfehlung**: Sehr praktisch, einheitliche Syntax
 
 ---
 
@@ -944,7 +944,7 @@ public class ArtikelBatchProcessor
 }
 ```
 
-**WAWI-Empfehlung**: ⚠️ Nur für Performance-kritische Bereiche
+**WAWI-Empfehlung**: Nur für Performance-kritische Bereiche
 
 ---
 
@@ -987,7 +987,7 @@ public class ArtikelService
 }
 ```
 
-**WAWI-Empfehlung**: ✅ Sehr praktisch für komplexe generische Typen
+**WAWI-Empfehlung**: Sehr praktisch für komplexe generische Typen
 
 ---
 
@@ -1001,7 +1001,7 @@ var endpreis1 = berechneRabatt(100m);        // 90€ (10% Rabatt)
 var endpreis2 = berechneRabatt(100m, 0.2m);  // 80€ (20% Rabatt)
 ```
 
-**WAWI-Empfehlung**: ⚠️ Nett, aber nicht übertreiben
+**WAWI-Empfehlung**: Nett, aber nicht übertreiben
 
 ---
 
@@ -1022,7 +1022,7 @@ public class NewArtikelImportFeature
 // Mehr für Framework-Entwickler, weniger für Business Logic
 ```
 
-**WAWI-Empfehlung**: ⚠️ Experimental nur für interne Tests, Interceptors erstmal ignorieren
+**WAWI-Empfehlung**: Experimental nur für interne Tests, Interceptors erstmal ignorieren
 
 ---
 
@@ -1123,7 +1123,7 @@ string GetStatus(ArtikelStatus status) => status switch
 
 ## Best Practices für die WAWI-Codebase
 
-### ✅ Empfohlene Patterns (Priorität für WAWI)
+### Empfohlene Patterns (Priorität für WAWI)
 
 **Sofort einführen (High Impact, Low Risk):**
 1. **File-scoped Namespaces**: Überall, spart Einrückung
@@ -1141,13 +1141,13 @@ string GetStatus(ArtikelStatus status) => status switch
 9. **Async Streams**: Große Datenmengen, Exports
 10. **Raw Strings**: SQL-Queries, JSON-Templates
 
-### ⚠️ Mit Vorsicht verwenden
+### Mit Vorsicht verwenden
 
 1. **Default Interface Methods**: Nur wenn unbedingt nötig
 2. **Komplexe Pattern Matching**: Nicht zu verschachtelt
 3. **Lambda Attributes**: Performance-kritische Bereiche
 
-### 🚫 Vermeiden
+### Vermeiden
 
 1. **Überkomplexe Switch Expressions**: Lesbarkeit geht vor
 2. **Ranges in Performance-kritischen Loops**: Array.Copy kann schneller sein
