@@ -14,8 +14,8 @@ Die wichtigsten C# Features der Versionen 8.0 bis 12.0 im Kontext der WAWI-Migra
 - **C# 10.0** (2021): Global Usings, File-scoped Namespaces, Record Structs
 - **C# 11.0** (2022): Raw Strings, List Patterns, Required Members
 - **C# 12.0** (2023): Primary Constructors, Collection Expressions
-- **C# 13.0** (2024): Escape Sequence, Params Collections *[Überblick]*
-- **C# 14.0** (Preview): Field Keyword, Partial Properties *[Überblick]*
+- **C# 13.0** (2024): Escape Sequence, Params Collections
+- **C# 14.0** (Preview): Field Keyword, Partial Properties
 
 ### - Was wir gewinnen
 Die neuen C# Features machen Code:
@@ -44,14 +44,11 @@ Die neuen C# Features machen Code:
 
 **Wichtig**: Schrittweise Migration, Features dort einsetzen wo sie Sinn machen!
 
-### - Empfehlungslevels 
-⭐⭐⭐ = Must-have, = Mit Vorsicht
-
 ---
 
 ## C# 8.0 - Die Foundation für moderne C# Entwicklung
 
-### 1. Nullable Reference Types ⭐⭐⭐
+### 1. Nullable Reference Types 
 
 **Das Problem**: NullReferenceException ist einer der häufigsten Fehler in C#.
 
@@ -96,7 +93,7 @@ public class KundenService
 
 ---
 
-### 2. Switch Expressions ⭐⭐⭐
+### 2. Switch Expressions 
 
 **Das Problem**: Verbose switch statements mit viel Boilerplate Code.
 
@@ -142,7 +139,7 @@ public decimal GetVersandkostenRabatt(Kunde kunde, decimal bestellwert) => (kund
 
 ---
 
-### 3. Property Patterns ⭐⭐
+### 3. Property Patterns 
 
 ```csharp
 // WAWI-Beispiel: Bestellstatus prüfen
@@ -166,7 +163,7 @@ public string GetRabattKategorie(Kunde kunde) => kunde switch
 
 ---
 
-### 4. Async Streams (IAsyncEnumerable) ⭐⭐
+### 4. Async Streams (IAsyncEnumerable) 
 
 ```csharp
 // Vorher (C# 7.3) - Alle Daten auf einmal laden
@@ -212,7 +209,7 @@ await foreach (var artikel in service.GetAlleArtikelStreamAsync())
 
 ---
 
-### 5. Using Declarations ⭐⭐⭐
+### 5. Using Declarations 
 
 ```csharp
 // Vorher (C# 7.3) - Explizite using statements
@@ -247,7 +244,7 @@ public void ExportArtikelData()
 
 ---
 
-### 6. Null-coalescing Assignment (??=) ⭐⭐⭐
+### 6. Null-coalescing Assignment (??=) 
 
 ```csharp
 // Vorher (C# 7.3)
@@ -286,7 +283,7 @@ public class ArtikelService
 
 ---
 
-### 7. Ranges und Indices ⭐⭐
+### 7. Ranges und Indices 
 
 ```csharp
 // Vorher
@@ -316,7 +313,7 @@ var mittlere = artikelListe[1..^1];           // ["Artikel2", "Artikel3", "Artik
 
 ---
 
-### 8. Static Local Functions ⭐⭐
+### 8. Static Local Functions 
 
 ```csharp
 // Problem: Lokale Funktionen können versehentlich lokale Variablen capturen
@@ -352,7 +349,7 @@ public decimal BerechneGesamtpreis(BestellPosition[] positionen)
 
 ---
 
-### 9. Readonly Members in Structs ⭐⭐
+### 9. Readonly Members in Structs 
 
 ```csharp
 // WAWI Value Objects als readonly structs
@@ -388,7 +385,7 @@ public struct Geldwert
 
 ---
 
-### 10. Default Interface Methods ⭐
+### 10. Default Interface Methods 
 
 ```csharp
 // Erweitert bestehende Interfaces ohne Breaking Changes
@@ -409,7 +406,7 @@ public interface IArtikelService
 
 ---
 
-### 11. Interpolated Verbatim Strings Enhancement ⭐⭐
+### 11. Interpolated Verbatim Strings Enhancement 
 
 ```csharp
 // C# 7.3 - Verbatim strings mit Interpolation waren umständlich
@@ -449,7 +446,7 @@ var dynamicSql = @$"SELECT
 
 > **Hinweis**: Dein Kollege behandelt C# 9.0 im Detail. Hier nur die wichtigsten Features im Überblick.
 
-### Records ⭐⭐⭐
+### Records 
 ```csharp
 // C# 7.3 - Viel Boilerplate für Value Objects
 public class ArtikelInfoOld
@@ -470,7 +467,7 @@ var artikel = new ArtikelInfo("Laptop", 999m);
 var teurer = artikel with { Preis = 1299m }; // Non-destructive mutation
 ```
 
-### Init-only Properties ⭐⭐⭐
+### Init-only Properties 
 ```csharp
 // Immutable Objects ohne Constructor-Overhead
 public class Bestellung
@@ -493,7 +490,7 @@ var bestellung = new Bestellung
 
 ## C# 10.0 - Moderne Syntax und weniger Boilerplate
 
-### 1. Interpolated String Handlers ⭐⭐⭐
+### 1. Interpolated String Handlers 
 
 **Das Problem**: String-Interpolation kann Performance-Probleme verursachen, besonders beim Logging.
 
@@ -535,7 +532,7 @@ public ref struct ArtikelLogHandler
 
 ---
 
-### 2. File-scoped Namespaces ⭐⭐⭐
+### 2. File-scoped Namespaces 
 
 ```csharp
 // Vorher
@@ -560,7 +557,7 @@ public class ArtikelService
 
 ---
 
-### 3. Global Using Directives ⭐⭐⭐
+### 3. Global Using Directives 
 
 ```csharp
 // GlobalUsings.cs (neue Datei)
@@ -586,7 +583,7 @@ public class ArtikelService // Keine using statements nötig!
 
 ---
 
-### 4. Record Structs ⭐⭐
+### 4. Record Structs 
 
 ```csharp
 // Für DTOs und Value Objects
@@ -609,7 +606,7 @@ var neuerFilter = filter with { MaxPreis = 1500m };
 
 ---
 
-### 5. Const Interpolated Strings ⭐⭐
+### 5. Const Interpolated Strings 
 
 ```csharp
 // C# 7.3 - Konstante Strings konnten nicht interpoliert werden
@@ -640,7 +637,7 @@ const string InvalidPriceError = $"{ErrorPrefix} Preis muss positiv sein";
 
 ---
 
-### 6. Lambda Improvements ⭐⭐
+### 6. Lambda Improvements 
 
 ```csharp
 // Natural type inference
@@ -661,7 +658,7 @@ public void ProcessArtikel(Artikel[] artikel)
 
 ---
 
-### 7. Extended Property Patterns ⭐⭐⭐
+### 7. Extended Property Patterns 
 
 ```csharp
 // C# 8.0 - Basis Property Patterns
@@ -704,7 +701,7 @@ public bool IstExpressVersand(Bestellung bestellung) => bestellung switch
 
 ---
 
-### 8. CallerArgumentExpression Attribute ⭐⭐
+### 8. CallerArgumentExpression Attribute 
 
 ```csharp
 // Verbesserte Validierung und Logging
@@ -753,7 +750,7 @@ WawiLogger.LogValue(artikel.Name); // Output: "artikel.Name = Laptop"
 
 > **Hinweis**: Dein Kollege behandelt C# 11.0 im Detail. Hier die wichtigsten Features.
 
-### Raw String Literals ⭐⭐⭐
+### Raw String Literals 
 ```csharp
 // C# 7.3 - Escape-Hell bei komplexen Strings
 string sqlQuery = "SELECT * FROM Artikel WHERE Name LIKE '%\\%' AND Beschreibung LIKE '%\"Premium\"'";
@@ -774,7 +771,7 @@ string jsonTemplate = """
     """;
 ```
 
-### List Patterns ⭐⭐
+### List Patterns 
 ```csharp
 // Pattern Matching für Listen/Arrays
 public string AnalyzeBestellpositionen(BestellPosition[] positionen) => positionen switch
@@ -787,7 +784,7 @@ public string AnalyzeBestellpositionen(BestellPosition[] positionen) => position
 };
 ```
 
-### Required Members ⭐⭐
+### Required Members 
 ```csharp
 public class Kunde
 {
@@ -804,7 +801,7 @@ var kunde = new Kunde { Name = "Max", Email = "max@test.de" }; // OK
 
 ## C# 12.0 - Noch mehr Syntax-Zucker
 
-### 1. Ref Readonly Parameters ⭐⭐
+### 1. Ref Readonly Parameters 
 
 ```csharp
 // Problem: Large structs als Parameter sind langsam
@@ -839,7 +836,7 @@ AnalyzeStatistik(in stats); // 'in' beim Aufruf
 
 ---
 
-### 2. Primary Constructors ⭐⭐⭐
+### 2. Primary Constructors 
 
 ```csharp
 // Vorher
@@ -878,7 +875,7 @@ public class ArtikelViewModel(Artikel artikel)
 
 ---
 
-### 3. Collection Expressions ⭐⭐⭐
+### 3. Collection Expressions 
 
 ```csharp
 // Vorher
@@ -906,7 +903,7 @@ public ArtikelFilter CreateFullFilter()
 
 ---
 
-### 4. Inline Arrays ⭐⭐
+### 4. Inline Arrays 
 
 ```csharp
 // C# 12.0 - Inline Arrays für feste Buffer
@@ -948,7 +945,7 @@ public class ArtikelBatchProcessor
 
 ---
 
-### 5. Alias Any Type ⭐⭐
+### 5. Alias Any Type 
 
 ```csharp
 // C# 7.3 - Nur named types
@@ -991,7 +988,7 @@ public class ArtikelService
 
 ---
 
-### 6. Optional Lambda Parameters ⭐
+### 6. Optional Lambda Parameters 
 
 ```csharp
 // Lambda mit Default-Werten
@@ -1005,7 +1002,7 @@ var endpreis2 = berechneRabatt(100m, 0.2m);  // 80€ (20% Rabatt)
 
 ---
 
-### 7. Experimental Attribute & Interceptors ⭐
+### 7. Experimental Attribute & Interceptors 
 
 ```csharp
 // Experimental Features markieren
@@ -1030,7 +1027,7 @@ public class NewArtikelImportFeature
 
 > **Hinweis**: Dein Kollege behandelt diese Versionen. Hier nur ein kurzer Ausblick.
 
-### C# 13.0 (2024) ⭐
+### C# 13.0 (2024) 
 ```csharp
 // Escape Sequences in Raw Strings
 string template = """
@@ -1042,7 +1039,7 @@ string template = """
 public void LogArtikel(params ReadOnlySpan<Artikel> artikel) { }
 ```
 
-### C# 14.0 (Preview) ⭐
+### C# 14.0 (Preview) 
 ```csharp
 // Field Keyword
 public class ArtikelService
@@ -1066,7 +1063,7 @@ public partial class Artikel
 
 ## Migration von C# 7.3: Was ändert sich fundamental?
 
-### 🚀 Große Paradigmen-Wechsel
+### Große Paradigmen-Wechsel
 
 #### 1. Von Mutability zu Immutability
 ```csharp
@@ -1205,5 +1202,4 @@ string GetStatus(ArtikelStatus status) => status switch
 1. **Team-Diskussion**: Welche Features wollen wir priorisieren?
 2. **Pilot-Projekt**: Ein Modul als Referenz-Implementation
 3. **Coding Guidelines**: StyleCop-Regeln für neue Features
-4. **Schulung Teil 2**: Dein Kollege präsentiert C# 9, 11, 13, 14
 5. **Hands-on Session**: Live-Refactoring einer echten WAWI-Klasse
